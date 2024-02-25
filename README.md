@@ -21,7 +21,6 @@ The data saving and reading are carried out using **numpy.savetxt()** and **nump
 
 ### 1D Data
 
----
 #### Data Information
 
 1D data are stored in directory [*Result_Data/1DOF*](Result_Data/1DOF) and were used to carry out 1DOF investigations. The *dT*, *dU*, *dP* in the file name indicates the variable that is changed in the study. The number in the file name is the average static temperature used for this calculation.
@@ -37,7 +36,6 @@ In each 1D file, the following information are stored:
 
 In this study, X values are the non-dimensional property difference values for the specific 1DOF study ($\widetilde{\Delta T}$, $\widetilde{\Delta U}$, or $\widetilde{\Delta P}$). Six y arrays are included in the results: the first 5 are the corresponding mixing loss for different average specific entropy cases: $S_{avg} =$ 1100, 1300, 1425, 1550, and 1700 JK$^{-1}$kg$^{-1}$. The sixth set of y value are the corresponding perfect gas calculation for CO$_2$ when $\gamma=1.37$. 
 
----
 #### Data Loading
 
 1D data can be loaded using the **reading_XY()** function in [*data_process_functions.py*](data_process_functions.py). 
@@ -50,7 +48,6 @@ By executing the code above, **x** will be loaded with the x-coordinate of the t
 
 ### 3D Data
 
----
 #### Data Information
 
 3D data are stored in directories with two numbers in [*Result_Data*](Result_Data), which indicates the average static states of the calculation. The first value is the average static temperature and the second is the average specific entropy.
@@ -67,7 +64,6 @@ In each data file, the data are structured slightly differently:
 | 7           | z values                        |
 | 8 - End     | z value title followed by the matrix slice in z direction|
 
----
 #### Data Loading
 
 3D data can be loaded using the **reading_3D_array()** function in [*data_process_functions.py*](data_process_functions.py). 
@@ -78,8 +74,7 @@ X, Y, Z, result = reading_3D_array('Result_Data/305.00-1300.00/305.00-1300.00-re
 
 The returned values **X, Y, Z, result** are 3-dimensional Numpy arrays with dimension (Nx, Ny, Nz). **X, Y, Z** are generated using **numpy.meshgrid()** method using x,y,z values read from 3$^{\textrm{rd}}$, 5$^{\textrm{th}}$, and 7$^{\textrm{th}}$ row of the data file and **result** is the corresponding mixing loss coefficient.
 
----
-#### 3D data Transformation
+#### 3D Data Transformation
 
 The default assignment of **X, Y, Z** are 
 
