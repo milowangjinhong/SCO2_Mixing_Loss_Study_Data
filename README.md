@@ -13,7 +13,7 @@ This module only requries [NumPy](https://numpy.org/) for array calculations.
 
 ## Studied Cases
 
-Two series of investigations with two temperatures (305 and 310 K) near the critical point were selected to investigate the effect of the average temperature on mixing loss. Five featuring specific entropy levels (1100, 1300, 1425, 1550, and 1700 J K$^{-1}$ kg $^{-1}$) were selected to be the five entropy cases for the non-ideal fluid calculation. A corresponding perfect gas calculation ($\gamma = 1.28$) was included as a reference. 
+Please read our paper (under review) for details in the calculation case information.
 
 ## Data Structure
 
@@ -34,7 +34,7 @@ In each 1D file, the following information are stored:
 | 5           | Number of y value arrays      |
 | 6 - End     | Each row is a set of y value  |
 
-In this study, X values are the non-dimensional property difference values for the specific 1DOF study ($\widetilde{\Delta T}$, $\widetilde{\Delta U}$, or $\widetilde{\Delta P}$). Six y arrays are included in the results: the first 5 are the corresponding mixing loss for different average specific entropy cases: $S_{avg} =$ 1100, 1300, 1425, 1550, and 1700 JK$^{-1}$kg$^{-1}$. The sixth set of y value are the corresponding perfect gas calculation for CO$_2$ when $\gamma=1.37$. 
+In this study, X values are the non-dimensional property difference values for the specific 1DOF study ($\widetilde{\Delta T}$, $\widetilde{\Delta U}$, or $\widetilde{\Delta P}$). Six y arrays are included in the results: the first 5 are the corresponding mixing loss for different average specific entropy cases. The sixth set of y value are the corresponding perfect gas calculation for $\textrm{CO}_2$ when $\gamma=1.37$. 
 
 #### Data Loading
 
@@ -52,7 +52,7 @@ By executing the code above, **x** will be loaded with the x-coordinate of the t
 
 3D data are stored in directories with two numbers in [*Result_Data*](Result_Data), which indicates the average static states of the calculation. The first value is the average static temperature and the second is the average specific entropy.
 
-In each subfolder, results are saved in different slicing directions: P-U, Y-P, and T-U. The *real* labels in the file names indicate that the results are non-ideal fluid calculations and the *ideal* labels are the perfect gas results. Since there is only 1 perfect gas calculation for each average static temperature, they are only storied in folder with $S_{avg}=1425$ JK$^{-1}$kg$^{-1}$.
+In each subfolder, results are saved in different slicing directions: P-U, Y-P, and T-U. The *real* labels in the file names indicate that the results are non-ideal fluid calculations and the *ideal* labels are the perfect gas results. Since there is only 1 perfect gas calculation for each average static temperature, they are only storied in folder with $S_{avg}=1425$ $\textrm{JK}^{-1}\textrm{kg}^{-1}$.
 
 In each data file, the data are structured slightly differently:
 
@@ -72,7 +72,7 @@ In each data file, the data are structured slightly differently:
 X, Y, Z, result = reading_3D_array('Result_Data/305.00-1300.00/305.00-1300.00-realTU.txt')
 ```
 
-The returned values **X, Y, Z, result** are 3-dimensional Numpy arrays with dimension (Nx, Ny, Nz). **X, Y, Z** are generated using **numpy.meshgrid()** method using x,y,z values read from 3$^{\textrm{rd}}$, 5$^{\textrm{th}}$, and 7$^{\textrm{th}}$ row of the data file and **result** is the corresponding mixing loss coefficient.
+The returned values **X, Y, Z, result** are 3-dimensional Numpy arrays with dimension (Nx, Ny, Nz). **X, Y, Z** are generated using **numpy.meshgrid()** method using x,y,z values read from $3^{\textrm{rd}}$, $5^{\textrm{th}}$, and $7^{\textrm{th}}$ row of the data file and **result** is the corresponding mixing loss coefficient.
 
 #### 3D Data Transformation
 
